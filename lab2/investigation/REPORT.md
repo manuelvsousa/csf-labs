@@ -127,3 +127,46 @@ And then we ran a volatility shell
 ```
 volatility volshell
 ```
+
+# Questions Investigation
+
+Check Processes and their start date (use this to find out suspicious processes):
+
+```
+vol.py --profile=LinuxUbuntu160405x64 -f sally_mem linux_pslist
+```
+
+Then we ran volatility in order to get the proc maps for our process.
+
+```
+vol.py --profile=LinuxUbuntu160405x64 -f sally_mem linux_proc_maps -p 14921
+```
+We only dumped memory related to the identified process to a forder by doing:
+
+```
+vol.py --profile=LinuxUbuntu160405x64 -f sally_mem linux_proc_maps -p 14921 --dump-dir dump/
+```
+
+This file:
+```
+task.14921.0x7f127fbf4000.vma.strings
+```
+
+Contains stuff related to the encription key that was used in AES Counter mode.
+```
+echo "47683b9a9663c065353437b35c5d8519" > key.txt
+```
+
+We found this echo being made. We believe this is the key as this is a string with 32 characters represented in hexadecimal meaning that each characters represents 1 Byte, so 16 bytes in total. As the lab specification tells us that the key has 128 bits, this might be correct.
+
+
+This file also contains information about a ssh connection that was made and shows a username and hostname of a possible ssh connection
+```
+jason@optiplex
+```
+
+This file contains more information about a possible ssh connection made by the malware.
+```
+task.14921.0x7f127fbf4000.vma.strings
+```
+
