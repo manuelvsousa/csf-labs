@@ -1,0 +1,23 @@
+Foremost version 1.5.7 by Jesse Kornblum, Kris Kendall, and Nick Mikus
+Audit File
+
+Foremost started at Mon Dec 17 17:26:13 2018
+Invocation: foremost save.pickle 
+Output directory: /Users/mvs/repo/csf-labs/lab3/exxtracted/wireshark/output
+Configuration file: /usr/local/etc/foremost.conf
+------------------------------------------------------------------
+File: save.pickle
+Start: Mon Dec 17 17:26:13 2018
+Length: Unknown
+ 
+Num	 Name (bs=512)	       Size	 File Offset	 Comment 
+
+0:	00000000.dll 	     734 KB 	          4 	 08/19/2011 05:03:47
+Finish: Mon Dec 17 17:26:13 2018
+
+1 FILES EXTRACTED
+	
+exe:= 1
+------------------------------------------------------------------
+
+Foremost finished at Mon Dec 17 17:26:13 2018
